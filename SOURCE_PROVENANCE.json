@@ -1,0 +1,30 @@
+{
+  "app": "TablesCraftLocal",
+  "release_version": "0.9.6-local.20261103",
+  "baseline_source_commit": "bb82db7c00ff47a98b2b702b89c0b1c6bba9461f",
+  "desktop_version": "0.9.6",
+  "installer_version": "0.9.7",
+  "unchanged_exe_sha256": "b7577f0a3da319806b30168127f0aa4cd3efff848d530574427d02bbcef2ac6c",
+  "application_recompiled": false,
+  "packaging_only": true,
+  "later_development_included": false,
+  "toolchain": "WiX 6.0.2, existing .NET 8 runtime with Major roll-forward",
+  "signature_status": "unsigned",
+  "artifacts": [
+    {
+      "filename": "TablesCraftLocal-0.9.6-local.20261103-windows-x64.msi",
+      "bytes": 10706944,
+      "sha256": "31f98d4d7a5e90248d8ece0d4954ad9166c6cb9f403868bd22d017f73a504fb5"
+    },
+    {
+      "filename": "TablesCraftLocal-0.9.6-local.20261103-windows-x64-Setup.exe",
+      "bytes": 11772962,
+      "sha256": "25b88b2676465459dff1d3990b348a4c31f90ac46267aad2ef9c3a1c11d29d44"
+    },
+    {
+      "filename": "TablesCraftLocal-0.9.6-local.20261103-windows-x64-Portable.zip",
+      "bytes": 14191402,
+      "sha256": "890cac660cb86a49f0637cae24470eaab7fc8bd108db26d3d51d5319d67ea92c"
+    }
+  ]
+}

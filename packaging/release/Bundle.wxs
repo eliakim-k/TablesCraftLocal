@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs" xmlns:bal="http://wixtoolset.org/schemas/v4/wxs/bal">
+  <Bundle Name="TablesCraft Local" Manufacturer="TablesCraft Local community build" Version="$(var.Version)"
+          UpgradeCode="B9E88D5C-FB22-44CD-BCEF-4C6A0F780A2F" IconSourceFile="$(var.SourceDir)/assets/app-icon/gridcraft.ico">
+    <BootstrapperApplication>
+      <bal:WixStandardBootstrapperApplication Theme="rtfLicense" LicenseFile="$(var.LicenseRtf)"
+                                             ShowVersion="yes" SuppressOptionsUI="yes" />
+    </BootstrapperApplication>
+    <Chain>
+      <MsiPackage Id="TablesCraftLocalMsi" SourceFile="$(var.MsiPath)" Compressed="yes" Vital="yes" />
+    </Chain>
+  </Bundle>
+</Wix>

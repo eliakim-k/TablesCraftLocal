@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs">
+  <Package Name="TablesCraft Local" Manufacturer="TablesCraft Local community build" Version="$(var.Version)" UpgradeCode="7D06815C-E75F-4F43-8BBB-53C445FA731C" Scope="perUser" Compressed="yes" Language="1033">
+    <SummaryInformation Description="TablesCraft Local offline desktop editor" />
+    <MajorUpgrade DowngradeErrorMessage="A newer TablesCraft Local is already installed." />
+    <MediaTemplate EmbedCab="yes" CompressionLevel="high" />
+    <Property Id="MSIRESTARTMANAGERCONTROL" Value="DisableShutdown" />
+    <Icon Id="LocalIcon.ico" SourceFile="$(var.SourceDir)/assets/app-icon/gridcraft.ico" />
+    <Property Id="ARPPRODUCTICON" Value="LocalIcon.ico" />
+    <StandardDirectory Id="LocalAppDataFolder">
+      <Directory Id="LocalPrograms" Name="Programs">
+        <Directory Id="INSTALLFOLDER" Name="TablesCraftLocal">
+          <Component Id="LocalExecutable" Guid="0FA3003E-6A1C-59CF-B980-FF4C6424214D">
+            <File Id="LocalExe" Source="$(var.PayloadDir)/TablesCraftLocal.exe" />
+            <RegistryValue Root="HKCU" Key="Software\TablesCraftLocal\Install" Name="Executable" Type="string" Value="[#LocalExe]" KeyPath="yes" />
+            <RemoveFolder Id="RemoveInstall" On="uninstall" />
+            <RegistryValue Root="HKCU" Key="Software\Classes\GridCraftLocal.Workbook" Type="string" Value="TablesCraft Local workbook" />
+            <RegistryValue Root="HKCU" Key="Software\Classes\GridCraftLocal.Workbook\DefaultIcon" Type="string" Value="&quot;[#LocalExe]&quot;,0" />
+            <RegistryValue Root="HKCU" Key="Software\Classes\GridCraftLocal.Workbook\shell\open\command" Type="string" Value="&quot;[#LocalExe]&quot; &quot;%1&quot;" />
+            <RegistryValue Root="HKCU" Key="Software\Classes\GridCraftLocal.Workbook\Application" Type="string" Value="TablesCraft Local" Name="ApplicationName" />
+            <RegistryValue Root="HKCU" Key="Software\Classes\GridCraftLocal.Workbook\Application" Type="string" Value="&quot;[#LocalExe]&quot;,0" Name="ApplicationIcon" />
+            <RegistryValue Root="HKCU" Key="Software\Classes\Applications\TablesCraftLocal.exe" Type="string" Value="TablesCraft Local" Name="FriendlyAppName" />
+            <RegistryValue Root="HKCU" Key="Software\Classes\Applications\TablesCraftLocal.exe\DefaultIcon" Type="string" Value="&quot;[#LocalExe]&quot;,0" />
+            <RegistryValue Root="HKCU" Key="Software\Classes\Applications\TablesCraftLocal.exe\shell\open\command" Type="string" Value="&quot;[#LocalExe]&quot; &quot;%1&quot;" />
+            <RegistryValue Root="HKCU" Key="Software\TablesCraftLocal\Capabilities" Type="string" Value="TablesCraft Local" Name="ApplicationName" />
+            <RegistryValue Root="HKCU" Key="Software\TablesCraftLocal\Capabilities" Type="string" Value="TablesCraft Local local document editor" Name="ApplicationDescription" />
+            <RegistryValue Root="HKCU" Key="Software\TablesCraftLocal\Capabilities" Type="string" Value="&quot;[#LocalExe]&quot;,0" Name="ApplicationIcon" />
+            <RegistryValue Root="HKCU" Key="Software\RegisteredApplications" Type="string" Value="Software\TablesCraftLocal\Capabilities" Name="TablesCraft Local" />
+            <RegistryValue Root="HKCU" Key="Software\Classes\.xlsx\OpenWithProgids" Type="string" Value="" Name="GridCraftLocal.Workbook" />
+            <RegistryValue Root="HKCU" Key="Software\Classes\Applications\TablesCraftLocal.exe\SupportedTypes" Type="string" Value="" Name=".xlsx" />
+            <RegistryValue Root="HKCU" Key="Software\TablesCraftLocal\Capabilities\FileAssociations" Type="string" Value="GridCraftLocal.Workbook" Name=".xlsx" />
+            <RegistryValue Root="HKCU" Key="Software\Classes\.xlsm\OpenWithProgids" Type="string" Value="" Name="GridCraftLocal.Workbook" />
+            <RegistryValue Root="HKCU" Key="Software\Classes\Applications\TablesCraftLocal.exe\SupportedTypes" Type="string" Value="" Name=".xlsm" />
+            <RegistryValue Root="HKCU" Key="Software\TablesCraftLocal\Capabilities\FileAssociations" Type="string" Value="GridCraftLocal.Workbook" Name=".xlsm" />
+            <RegistryValue Root="HKCU" Key="Software\Classes\.xltx\OpenWithProgids" Type="string" Value="" Name="GridCraftLocal.Workbook" />
+            <RegistryValue Root="HKCU" Key="Software\Classes\Applications\TablesCraftLocal.exe\SupportedTypes" Type="string" Value="" Name=".xltx" />
+            <RegistryValue Root="HKCU" Key="Software\TablesCraftLocal\Capabilities\FileAssociations" Type="string" Value="GridCraftLocal.Workbook" Name=".xltx" />
+            <RegistryValue Root="HKCU" Key="Software\Classes\.xltm\OpenWithProgids" Type="string" Value="" Name="GridCraftLocal.Workbook" />
+            <RegistryValue Root="HKCU" Key="Software\Classes\Applications\TablesCraftLocal.exe\SupportedTypes" Type="string" Value="" Name=".xltm" />
+            <RegistryValue Root="HKCU" Key="Software\TablesCraftLocal\Capabilities\FileAssociations" Type="string" Value="GridCraftLocal.Workbook" Name=".xltm" />
+            <RegistryValue Root="HKCU" Key="Software\Classes\.ods\OpenWithProgids" Type="string" Value="" Name="GridCraftLocal.Workbook" />
+            <RegistryValue Root="HKCU" Key="Software\Classes\Applications\TablesCraftLocal.exe\SupportedTypes" Type="string" Value="" Name=".ods" />
+            <RegistryValue Root="HKCU" Key="Software\TablesCraftLocal\Capabilities\FileAssociations" Type="string" Value="GridCraftLocal.Workbook" Name=".ods" />
+            <RegistryValue Root="HKCU" Key="Software\Classes\.csv\OpenWithProgids" Type="string" Value="" Name="GridCraftLocal.Workbook" />
+            <RegistryValue Root="HKCU" Key="Software\Classes\Applications\TablesCraftLocal.exe\SupportedTypes" Type="string" Value="" Name=".csv" />
+            <RegistryValue Root="HKCU" Key="Software\TablesCraftLocal\Capabilities\FileAssociations" Type="string" Value="GridCraftLocal.Workbook" Name=".csv" />
+            <RegistryValue Root="HKCU" Key="Software\Classes\.tsv\OpenWithProgids" Type="string" Value="" Name="GridCraftLocal.Workbook" />
+            <RegistryValue Root="HKCU" Key="Software\Classes\Applications\TablesCraftLocal.exe\SupportedTypes" Type="string" Value="" Name=".tsv" />
+            <RegistryValue Root="HKCU" Key="Software\TablesCraftLocal\Capabilities\FileAssociations" Type="string" Value="GridCraftLocal.Workbook" Name=".tsv" />
+            <RegistryValue Root="HKCU" Key="Software\Classes\.tab\OpenWithProgids" Type="string" Value="" Name="GridCraftLocal.Workbook" />
+            <RegistryValue Root="HKCU" Key="Software\Classes\Applications\TablesCraftLocal.exe\SupportedTypes" Type="string" Value="" Name=".tab" />
+            <RegistryValue Root="HKCU" Key="Software\TablesCraftLocal\Capabilities\FileAssociations" Type="string" Value="GridCraftLocal.Workbook" Name=".tab" />
+            <RegistryValue Root="HKCU" Key="Software\Classes\Applications\GridCraftLocal.exe" Type="string" Value="TablesCraft Local" Name="FriendlyAppName" />
+            <RegistryValue Root="HKCU" Key="Software\Classes\Applications\GridCraftLocal.exe\DefaultIcon" Type="string" Value="&quot;[#LocalExe]&quot;,0" />
+            <RegistryValue Root="HKCU" Key="Software\Classes\Applications\GridCraftLocal.exe\shell\open\command" Type="string" Value="&quot;[#LocalExe]&quot; &quot;%1&quot;" />
+            <RegistryValue Root="HKCU" Key="Software\Classes\Applications\GridCraftLocal.exe\SupportedTypes" Type="string" Value="" Name=".xlsx" />
+            <RegistryValue Root="HKCU" Key="Software\Classes\Applications\GridCraftLocal.exe\SupportedTypes" Type="string" Value="" Name=".xlsm" />
+            <RegistryValue Root="HKCU" Key="Software\Classes\Applications\GridCraftLocal.exe\SupportedTypes" Type="string" Value="" Name=".xltx" />
+            <RegistryValue Root="HKCU" Key="Software\Classes\Applications\GridCraftLocal.exe\SupportedTypes" Type="string" Value="" Name=".xltm" />
+            <RegistryValue Root="HKCU" Key="Software\Classes\Applications\GridCraftLocal.exe\SupportedTypes" Type="string" Value="" Name=".ods" />
+            <RegistryValue Root="HKCU" Key="Software\Classes\Applications\GridCraftLocal.exe\SupportedTypes" Type="string" Value="" Name=".csv" />
+            <RegistryValue Root="HKCU" Key="Software\Classes\Applications\GridCraftLocal.exe\SupportedTypes" Type="string" Value="" Name=".tsv" />
+            <RegistryValue Root="HKCU" Key="Software\Classes\Applications\GridCraftLocal.exe\SupportedTypes" Type="string" Value="" Name=".tab" />
+          </Component>
+          <Component Id="LocalNotices" Guid="3DCBFDA4-3B46-56FA-88F9-5873C6E7D367">
+            <File Source="$(var.PayloadDir)/THIRD-PARTY-NOTICES.txt" />
+            <File Source="$(var.PayloadDir)/LICENSE-MIT" />
+            <File Source="$(var.PayloadDir)/LICENSE-APACHE" />
+            <File Source="$(var.PayloadDir)/README.txt" />
+            <RegistryValue Root="HKCU" Key="Software\TablesCraftLocal\Install" Name="Notices" Type="integer" Value="1" KeyPath="yes" />
+          <File Source="$(var.PayloadDir)/NOTICE" /></Component>
+        </Directory>
+      </Directory>
+    </StandardDirectory>
+    <StandardDirectory Id="ProgramMenuFolder">
+      <Directory Id="LocalStartMenu" Name="TablesCraft Local">
+        <Component Id="LocalShortcut" Guid="63024CFB-5902-5C56-8CAB-754F356F6081">
+          <Shortcut Id="StartLocal" Name="TablesCraft Local" Target="[#LocalExe]" WorkingDirectory="INSTALLFOLDER" Icon="LocalIcon.ico" />
+          <RemoveFolder Id="RemoveMenu" On="uninstall" />
+          <RegistryValue Root="HKCU" Key="Software\TablesCraftLocal\Install" Name="Shortcut" Type="integer" Value="1" KeyPath="yes" />
+        </Component>
+      </Directory>
+    </StandardDirectory>
+    <Feature Id="Main" Title="TablesCraft Local" Level="1">
+      <ComponentRef Id="LocalExecutable" />
+      <ComponentRef Id="LocalNotices" />
+      <ComponentRef Id="LocalShortcut" />
+    </Feature>
+  </Package>
+</Wix>
